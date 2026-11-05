@@ -1,0 +1,15 @@
+services:
+  georent:
+    build: .
+    image: georent-ai
+    ports:
+      - "${GEORENT_PORT:-8501}:8501"
+    environment:
+      GEORENT_CITY: ${GEORENT_CITY:-barcelona}
+      GEORENT_PERMUTATIONS: ${GEORENT_PERMUTATIONS:-999}
+      GEORENT_SEED: ${GEORENT_SEED:-42}
+      GEORENT_MIN_LISTINGS: ${GEORENT_MIN_LISTINGS:-10}
+    volumes:
+      - ./data:/app/data        # pobrane dane Inside Airbnb (przetrwają restart kontenera)
+      - ./exports:/app/exports  # warstwy GIS dla QGIS
+    restart: unless-stopped

@@ -4,3 +4,8 @@ __pycache__/
 venv/
 .env
 .streamlit/secrets.toml
+.pytest_cache/
+
+# dane pobierane z Inside Airbnb i wyniki eksportu (odtwarzalne poleceniami z README / PROJEKT.md)
+data/
+exports/

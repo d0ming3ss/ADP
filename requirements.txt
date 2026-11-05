@@ -1,5 +1,18 @@
-streamlit
-pandas
-requests
-folium
-streamlit-folium
+# Zależności uruchomieniowe GeoRent-AI (wersje przetestowane na Pythonie 3.12–3.14)
+streamlit==1.66.1
+streamlit-folium==0.27.4
+folium==0.20.0
+branca>=0.8
+pandas==3.1.0
+numpy==2.5.4
+scipy==1.18.1
+requests==2.34.2
+geopandas==1.2.0
+shapely==2.2.0
+pyogrio==0.13.0
+pyproj==3.8.0
+libpysal==4.15.1
+esda==2.10.0
+mapclassify==2.11.0
+plotly==7.1.0
+

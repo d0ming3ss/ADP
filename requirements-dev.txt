@@ -1,2 +1,4 @@
 -r requirements.txt
 pytest==9.2.0
+# tylko do scripts/generate_results.py (statyczne mapy w docs/img)
+matplotlib==3.11.2

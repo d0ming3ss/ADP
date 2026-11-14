@@ -80,7 +80,7 @@ def cmd_export(args, settings) -> int:
                 break
         else:
             print("Uwaga: nie wygenerowano pliku .qgz (brak PyQGIS). Warstwy GPKG/GeoJSON są gotowe — "
-                  "patrz sekcja „QGIS” w PROJEKT.md.", file=sys.stderr)
+                  "patrz docs/QGIS.md.", file=sys.stderr)
     return 0
 
 

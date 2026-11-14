@@ -1,15 +1,23 @@
 # GeoRent-AI
 
 Przestrzenna analiza rynku najmu krótkoterminowego (Inside Airbnb) — projekt z przedmiotu *Analiza Danych Przestrzennych*.
+
 Dane rzeczywiste (Barcelona, wydanie 2026-09-17), operacje GIS (Spatial Join, kartogramy), autokorelacja przestrzenna
 (Global Moran's I, LISA — PySAL), aplikacja Streamlit i eksport do QGIS.
 
-**Pełna dokumentacja: [PROJEKT.md](PROJEKT.md)** · **przewodnik po projekcie: [docs/INSTRUKCJA.md](docs/INSTRUKCJA.md)** · metodologia: [docs/METODOLOGIA.md](docs/METODOLOGIA.md) ·
-QGIS: [docs/QGIS.md](docs/QGIS.md) · wyniki: [docs/WYNIKI.md](docs/WYNIKI.md)
+## Dokumentacja
+
+| Dokument | Zawartość |
+|---|---|
+| **[docs/SPRAWOZDANIE.md](docs/SPRAWOZDANIE.md)** | **pełna dokumentacja i sprawozdanie**: cel, architektura, kod, integracje z usługami zewnętrznymi, wyniki, testy, uruchomienie |
+| [docs/METODOLOGIA.md](docs/METODOLOGIA.md) | zastosowane metody, parametry i ograniczenia |
+| [docs/WYNIKI.md](docs/WYNIKI.md) | wyniki liczbowe (generowane automatycznie) |
+| [docs/QGIS.md](docs/QGIS.md) | eksport do QGIS, słownik pól |
 
 ## Szybki start
 
 ```bash
+git clone https://github.com/d0ming3ss/ADP && cd ADP
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements-dev.txt
 python -m georent download      # pobranie danych Inside Airbnb (~8 MB)
@@ -29,7 +37,19 @@ docker compose run --rm georent python -m georent download   # pobranie danych w
 python -m georent update        # sprawdź i pobierz nowsze wydanie danych
 python -m georent analyze       # wyniki analizy w terminalu
 python -m georent export        # GPKG + GeoJSON + CSV + projekt QGIS (exports/<miasto>/)
-python -m pytest                # testy
+python -m pytest                # testy (103)
+python scripts/generate_results.py   # regeneracja docs/WYNIKI.md i rysunków
 ```
 
-Prototyp z etapu 1 (OpenSky Network) znajduje się w `poc/opensky_app.py`.
+## Struktura
+
+```text
+app.py          punkt wejścia Streamlit
+georent/        pakiet: dane, czyszczenie, GIS, autokorelacja, analiza, wizualizacje, eksport, UI, CLI
+tests/          testy pytest
+scripts/        generator raportu wyników
+docs/           dokumentacja, wyniki, zrzuty ekranu
+```
+
+Dane (`data/`) i wyniki eksportu (`exports/`) nie są w repozytorium — odtwarza je `python -m georent download` / `export`.
+Dane: [Inside Airbnb](https://insideairbnb.com/get-the-data/), licencja CC BY 4.0.

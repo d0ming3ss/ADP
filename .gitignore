@@ -1,11 +1,21 @@
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
 .venv/
 venv/
-.env
-.streamlit/secrets.toml
+*.egg-info/
 .pytest_cache/
 
-# dane pobierane z Inside Airbnb i wyniki eksportu (odtwarzalne poleceniami z README / PROJEKT.md)
+# sekrety i konfiguracja lokalna
+.env
+.streamlit/secrets.toml
+
+# edytory / system
+.idea/
+.vscode/
+.DS_Store
+
+# dane pobierane z Inside Airbnb i wyniki eksportu — odtwarzalne poleceniami z README
+# (python -m georent download / python -m georent export)
 data/
 exports/

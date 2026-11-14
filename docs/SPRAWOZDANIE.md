@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | Przedmiot | Analiza Danych Przestrzennych |
-| Autor | Dominik Ciura |
+| Autor | Dominik Ciura, Adam Nowicki |
 | Repozytorium | <https://github.com/d0ming3ss/ADP> |
 | Wersja | 1.0 |
 | Data weryfikacji | 2026-11-14 |
